@@ -1,6 +1,6 @@
-// fooling around
-
-let movie = "Fear and Loathing in Los Vegas";
-for (character of movie) {
-
+function howManyHundreds (number) {
+howMany = number / 100;
+  return Math.floor(howMany);
 }
+
+console.log(howManyHundreds(999));
