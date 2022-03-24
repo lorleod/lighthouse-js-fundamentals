@@ -1,23 +1,16 @@
-function range (start, end, step) {
-  if (start == undefined || end == undefined || step == undefined) {
-  //returns empty array if any parameter is undefined
-    return [];
+function lastIndexOf (array, value) {
+  let remember = -1;
+  for (let i = 0; i < array.length; i ++) {
+    if (array[i] === value) {
+      remember = i;
+    }
   }
 
-  if (start > end || step < 1) {
-    //returns empty array if start > end or step < 1
-    return [];
-  }
-
-  let outputArray = [];
-  let value = start;
-  
-  while (value < end) {
-    outputArray.push(value);
-    value += step;
-  }
-  
-  return outputArray;
+  return remember;
 }
 
-console.log(range(0, 34, 5));
+console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 1), "=?", 3);
+console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 2), "=?", 4);
+console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 3), "=?", -1);
+console.log(lastIndexOf([ 5, 5, 5 ], 5), "=?", 2);
+console.log(lastIndexOf([], 3), "=?", -1);
