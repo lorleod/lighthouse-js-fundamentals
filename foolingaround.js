@@ -1,16 +1,15 @@
-function lastIndexOf (array, value) {
-  let remember = -1;
-  for (let i = 0; i < array.length; i ++) {
-    if (array[i] === value) {
-      remember = i;
-    }
+function concat (a, b) {
+  for (let i = 0; i < b.length; i++) {
+
+    a.push(b[i]);
+
   }
 
-  return remember;
+return a;
 }
 
-console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 1), "=?", 3);
-console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 2), "=?", 4);
-console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 3), "=?", -1);
-console.log(lastIndexOf([ 5, 5, 5 ], 5), "=?", 2);
-console.log(lastIndexOf([], 3), "=?", -1);
+
+console.log(concat([ 1, 2, 3 ], [ 4, 5, 6 ]), "=?", [ 1, 2, 3, 4, 5, 6 ]);
+console.log(concat([ 0, 3, 1 ], [ 9, 7, 2 ]), "=?", [ 0, 3, 1, 9, 7, 2 ]);
+console.log(concat([], [ 9, 7, 2 ]), "=?", [ 9, 7, 2 ]);
+console.log(concat([ 5, 10 ], []), "=?", [ 5, 10 ]);
