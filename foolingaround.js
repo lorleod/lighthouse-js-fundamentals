@@ -1,15 +1,23 @@
-function concat (a, b) {
-  for (let i = 0; i < b.length; i++) {
+/*
+ * Programming Quiz: Donuts Revisited (7-6)
+ */
 
-    a.push(b[i]);
+/*
+ * QUIZ REQUIREMENTS
+ * - Your code sshould have an array named `donuts`
+ * - Your `donuts` array should call the `forEach()` method
+ * - Your `forEach()` loop should output the donut summaries
+ * - BE CAREFUL ABOUT THE PUNCTUATION, SPACES, AND EXACT WORDS TO BE PRINTED.
+ */
 
-  }
+// This is an array of objects. 
+var donuts = [
+  { type: "Jelly", cost: 1.22 },
+  { type: "Chocolate", cost: 2.45 },
+  { type: "Cider", cost: 1.59 },
+  { type: "Boston Cream", cost: 5.99 }
+];
 
-return a;
-}
-
-
-console.log(concat([ 1, 2, 3 ], [ 4, 5, 6 ]), "=?", [ 1, 2, 3, 4, 5, 6 ]);
-console.log(concat([ 0, 3, 1 ], [ 9, 7, 2 ]), "=?", [ 0, 3, 1, 9, 7, 2 ]);
-console.log(concat([], [ 9, 7, 2 ]), "=?", [ 9, 7, 2 ]);
-console.log(concat([ 5, 10 ], []), "=?", [ 5, 10 ]);
+donuts.forEach(function(element) {
+  console.log(element.type + " donuts cost $" + element.cost + " each");
+  })
