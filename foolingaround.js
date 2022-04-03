@@ -1,23 +1,19 @@
-/*
- * Programming Quiz: Donuts Revisited (7-6)
- */
+function smartGarbage(trash, bins) {
+  switch (trash) {
+    case "waste":
+      bins.waste++;
+      break;
 
-/*
- * QUIZ REQUIREMENTS
- * - Your code sshould have an array named `donuts`
- * - Your `donuts` array should call the `forEach()` method
- * - Your `forEach()` loop should output the donut summaries
- * - BE CAREFUL ABOUT THE PUNCTUATION, SPACES, AND EXACT WORDS TO BE PRINTED.
- */
+    case "recycling":
+      bins.recycling++;
+      break;
 
-// This is an array of objects. 
-var donuts = [
-  { type: "Jelly", cost: 1.22 },
-  { type: "Chocolate", cost: 2.45 },
-  { type: "Cider", cost: 1.59 },
-  { type: "Boston Cream", cost: 5.99 }
-];
+    case "compost":
+      bins.compost++;
+      break;
+  }
 
-donuts.forEach(function(element) {
-  console.log(element.type + " donuts cost $" + element.cost + " each");
-  })
+return bins;
+}
+
+console.log (smartGarbage('compost', { waste: 4, recycling: 2, compost: 5 }));
