@@ -1,19 +1,23 @@
-function smartGarbage(trash, bins) {
-  switch (trash) {
-    case "waste":
-      bins.waste++;
-      break;
-
-    case "recycling":
-      bins.recycling++;
-      break;
-
-    case "compost":
-      bins.compost++;
-      break;
+const cars = [
+  {
+    time: 1568329654807,
+    speed: 40,
+  },
+  {
+    time: 1568329821632,
+    speed: 42,
+  },
+  {
+    time: 1568331115463,
+    speed: 35
   }
+]
 
-return bins;
+function carPassing(cars, speed) {
+  cars.push({time: Date.now(), speed: speed});
+  return cars;
 }
 
-console.log (smartGarbage('compost', { waste: 4, recycling: 2, compost: 5 }));
+const speed = 38;
+
+console.log(carPassing(cars, speed));
