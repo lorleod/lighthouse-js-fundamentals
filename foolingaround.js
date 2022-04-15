@@ -1,14 +1,25 @@
-const numberOfVowels = function(data) {
+const instructorWithLongestName = function(instructors) {
   let count = 0;
+  let longest = [];
 
-  for (let i = 0; i < data.length; i++) {
-    if (data[i] === 'a' || data[i] === 'e' || data[i] === 'i' || data[i] === 'o' || data[i] === 'u') {
-      count++;
+  for (let i = 0; i < instructors.length; i++) {
+    if (instructors[i].name.length > count) {
+      count = instructors[i].name.length;
+      longest = instructors[i];
     }
   }
-  return count;
+
+  return longest;
 }
 
-console.log(numberOfVowels("orange"));
-console.log(numberOfVowels("lighthouse labs"));
-console.log(numberOfVowels("aeiou"));
+console.log(instructorWithLongestName([
+  {name: "Samuel", course: "iOS"},
+  {name: "Jeremiah", course: "Web"},
+  {name: "Ophilia", course: "Web"},
+  {name: "Donald", course: "Web"}
+]));
+console.log(instructorWithLongestName([
+  {name: "Matthew", course: "Web"},
+  {name: "David", course: "iOS"},
+  {name: "Domascus", course: "Web"}
+]));
