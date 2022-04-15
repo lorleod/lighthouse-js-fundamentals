@@ -1,23 +1,37 @@
-const cars = [
+function judgeVegetable(vegetables, metric) {
+  let currentWinner = "no one";
+
+  for(let i = 0; i < vegetables.length; i++) {
+    let highestScore = 0;
+    if (vegetables[i].redness > highestScore) {
+      highestScore = vegetables[i].redness;
+      currentWinner = vegetables[i].submitter;
+      console.log(i, vegetables[i].redness, highestScore, currentWinner);
+    }
+  }
+
+  return currentWinner;
+}
+
+const vegetables = [
   {
-    time: 1568329654807,
-    speed: 40,
+    submitter: 'Old Man Franklin',
+    redness: 10,
+    plumpness: 5
   },
   {
-    time: 1568329821632,
-    speed: 42,
+    submitter: 'Sally Tomato-Grower',
+    redness: 2,
+    plumpness: 8
   },
   {
-    time: 1568331115463,
-    speed: 35
+    submitter: 'Hamid Hamidson',
+    redness: 4,
+    plumpness: 3
   }
 ]
 
-function carPassing(cars, speed) {
-  cars.push({time: Date.now(), speed: speed});
-  return cars;
-}
+const metric = 'redness';
 
-const speed = 38;
-
-console.log(carPassing(cars, speed));
+//judgeVegetable(vegetables, metric)
+console.log(judgeVegetable(vegetables, metric));
