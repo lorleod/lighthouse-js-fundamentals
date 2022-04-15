@@ -1,37 +1,14 @@
-function judgeVegetable(vegetables, metric) {
-  let currentWinner = "no one";
+const numberOfVowels = function(data) {
+  let count = 0;
 
-  for(let i = 0; i < vegetables.length; i++) {
-    let highestScore = 0;
-    if (vegetables[i].redness > highestScore) {
-      highestScore = vegetables[i].redness;
-      currentWinner = vegetables[i].submitter;
-      console.log(i, vegetables[i].redness, highestScore, currentWinner);
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] === 'a' || data[i] === 'e' || data[i] === 'i' || data[i] === 'o' || data[i] === 'u') {
+      count++;
     }
   }
-
-  return currentWinner;
+  return count;
 }
 
-const vegetables = [
-  {
-    submitter: 'Old Man Franklin',
-    redness: 10,
-    plumpness: 5
-  },
-  {
-    submitter: 'Sally Tomato-Grower',
-    redness: 2,
-    plumpness: 8
-  },
-  {
-    submitter: 'Hamid Hamidson',
-    redness: 4,
-    plumpness: 3
-  }
-]
-
-const metric = 'redness';
-
-//judgeVegetable(vegetables, metric)
-console.log(judgeVegetable(vegetables, metric));
+console.log(numberOfVowels("orange"));
+console.log(numberOfVowels("lighthouse labs"));
+console.log(numberOfVowels("aeiou"));
