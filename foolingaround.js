@@ -1,28 +1,15 @@
-const checkAir = function (samples, threshold) {
-  let sumDirty = 0;
-  for (let i = 0; i < samples.length; i++) {
-  if (samples[i] === 'dirty') {
-    sumDirty++;
+const sumLargestNumbers = function(data) {
+  let largest = 0;
+  let secondLargest = 0;
+  for (let i = 0; i < data.length; i++) {
+  if (data[i] > largest) {
+    secondLargest = largest;
+    largest = data[i];
   }
-}
-if (sumDirty/samples.length > threshold) {
-  return 'Polluted';
-} else {
-  return 'Clean';
-}
+  }
+  return largest + secondLargest;
 };
 
-console.log(checkAir(
-  ['clean', 'clean', 'dirty', 'clean', 'dirty', 'clean', 'clean', 'dirty', 'clean', 'dirty'],
-  0.3
-));
-
-console.log(checkAir(
-  ['dirty', 'dirty', 'dirty', 'dirty', 'clean'],
-  0.25
-));
-
-console.log(checkAir(
-  ['clean', 'dirty', 'clean', 'dirty', 'clean', 'dirty', 'clean'],
-  0.9
-))
+console.log(sumLargestNumbers([1, 10]));
+console.log(sumLargestNumbers([1, 2, 3]));
+console.log(sumLargestNumbers([10, 4, 34, 6, 92, 2]));
