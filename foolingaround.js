@@ -1,64 +1,28 @@
-const whereCanIPark = function (spots, vehicle) {
-  let coordinates = [];
-  for (let i = 0; i < spots.length; i++) {
-    for (let j = 0; j < spots[i].length; j++) {
-      switch(vehicle) {
-        case 'regular':
-        if (spots[i][j] === 'R') {
-            coordinates.push(j, i);
-            return coordinates;
-          }
-          break;
-        case 'small': 
-        if (spots[i][j] === 'R' || spots[i][j] === 'S') {
-            coordinates.push(j, i);
-            return coordinates;
-          }
-          break;
-        case 'motorcycle':
-          if (spots[i][j] === 'R' || spots[i][j] === 'S' || spots[i][j] === 'M') {
-            coordinates.push(j, i);
-            return coordinates;
-          }
-      }
-      
-    }
+const checkAir = function (samples, threshold) {
+  let sumDirty = 0;
+  for (let i = 0; i < samples.length; i++) {
+  if (samples[i] === 'dirty') {
+    sumDirty++;
   }
-  return false;
+}
+if (sumDirty/samples.length > threshold) {
+  return 'Polluted';
+} else {
+  return 'Clean';
+}
 };
 
-console.log(whereCanIPark(
-  [
-    // COLUMNS ARE X
-    // 0    1    2    3    4    5
-    ['s', 's', 's', 'S', 'R', 'M'], // 0 ROWS ARE Y
-    ['s', 'M', 's', 'S', 'r', 'M'], // 1
-    ['s', 'M', 's', 'S', 'r', 'm'], // 2
-    ['S', 'r', 's', 'm', 'r', 'M'], // 3
-    ['S', 'r', 's', 'm', 'r', 'M'], // 4
-    ['S', 'r', 'S', 'M', 'M', 'S']  // 5
-  ],
-  'regular'
+console.log(checkAir(
+  ['clean', 'clean', 'dirty', 'clean', 'dirty', 'clean', 'clean', 'dirty', 'clean', 'dirty'],
+  0.3
 ));
 
-console.log(whereCanIPark(
-  [
-    ['M', 'M', 'M', 'M'],
-    ['M', 's', 'M', 'M'],
-    ['M', 'M', 'M', 'M'],
-    ['M', 'M', 'r', 'M']
-  ],
-  'small'
+console.log(checkAir(
+  ['dirty', 'dirty', 'dirty', 'dirty', 'clean'],
+  0.25
 ));
 
-console.log(whereCanIPark(
-  [
-    ['s', 's', 's', 's', 's', 's'],
-    ['s', 'm', 's', 'S', 'r', 's'],
-    ['s', 'm', 's', 'S', 'r', 's'],
-    ['S', 'r', 's', 'm', 'r', 's'],
-    ['S', 'r', 's', 'm', 'R', 's'],
-    ['S', 'r', 'S', 'M', 'm', 'S']
-  ],
-  'motorcycle'
+console.log(checkAir(
+  ['clean', 'dirty', 'clean', 'dirty', 'clean', 'dirty', 'clean'],
+  0.9
 ))
