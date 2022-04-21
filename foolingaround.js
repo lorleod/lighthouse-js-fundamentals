@@ -1,19 +1,33 @@
-const sumLargestNumbers = function(data) {
-  let largest = 0;
-  let secondLargest = 0;
-  for (let i = 0; i < data.length; i++) {
-  if (data[i] > largest) {
-    secondLargest = largest;
-    largest = data[i];
+function judgeVegetable (vegetables, metric) {
+  let bestSoFar = 0;
+  let bestSubmitterSoFar = "";
+  for (let i = 0; i < vegetables.length; i++) {
+    if (vegetables[i][metric] > bestSoFar) {
+      bestSoFar = vegetables[i][metric];
+      bestSubmitterSoFar = vegetables[i].submitter;
+    }
   }
-  }
-  return largest + secondLargest;
-};
-
-console.log(sumLargestNumbers([1, 10]));
-console.log(sumLargestNumbers([1, 2, 3]));
-console.log(sumLargestNumbers([10, 4, 34, 6, 92, 2]));
-
-const chooseStations = function (stations) {
-
+  return bestSubmitterSoFar;
 }
+
+const vegetables = [
+  {
+    submitter: 'Old Man Franklin',
+    redness: 10,
+    plumpness: 5
+  },
+  {
+    submitter: 'Sally Tomato-Grower',
+    redness: 2,
+    plumpness: 8
+  },
+  {
+    submitter: 'Hamid Hamidson',
+    redness: 4,
+    plumpness: 3
+  }
+]
+
+const metric = 'redness'
+
+console.log(judgeVegetable(vegetables, metric))
